@@ -75,9 +75,8 @@ const generateNewSlugIfExist = debounce(async (slug: string) => {
 	if (response.data.data?.length) {
 		// generate random prefix for slug
 		onInputChange([
-			Date.now().toString(32).slice(-5),
-			Math.random().toString(32).slice(-2),
-			slug
+			slug,
+			response.data.data?.length + 1
 		].join(String(props.options.separator ?? '-')));
 	}
 }, 500);
